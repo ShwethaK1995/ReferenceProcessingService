@@ -1,0 +1,21 @@
+package com.accolite.util;
+
+import com.accolite.entity.ParsedRecord;
+
+public class FileParser {
+
+    public static ParsedRecord parseLine(String line) {
+        if (line.length() < 31) {
+            throw new IllegalArgumentException("Line too short: " + line);
+        }
+
+        String cusipId = line.substring(0, 8).trim();
+        String countryCode = line.substring(8, 10).trim();
+        String description = line.substring(10, 20).trim();
+        String isin = line.substring(20, 24).trim();
+        double lotSize = Double.parseDouble(line.substring(24, 30)) / 100;
+        String indicator = line.substring(30, 31).equals("1") ? "Y" : "N";
+
+        return new ParsedRecord(cusipId, countryCode, description, isin, lotSize, indicator);
+    }
+}
