@@ -43,8 +43,6 @@ tasks.named('jacocoTestReport') {
 }
 
 dependencies {
-    //implementation platform("org.springframework.boot:spring-boot-dependencies")
-    //testImplementation platform("org.springframework.boot:spring-boot-dependencies")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-kafka:4.0.0")
     implementation("org.springframework.boot:spring-boot-starter-validation")
